@@ -11,6 +11,7 @@ app.register_blueprint(user)
 app.register_blueprint(admin)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = confing.SQLALCHEMY_DATABASE_URI
+app.config['SECRET_KEY'] = confing.SECRET_KEY
 extentions.db.init_app(app)
 
 
