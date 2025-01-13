@@ -35,13 +35,18 @@ def products():
         description = request.form.get('description',None)
         price = request.form.get('price',None)
         active = request.form.get('active',None)
+        file = request.files.get('cover',None)
+
         p = Product(name=name,description=description,price=price)
         if active == None:
             p.active = 0
         else:
             p.active = 1
+
         db.session.add(p)
         db.session.commit()
+
+        file.save(f'static/cover/{p.id}.jpg')
 
         return "done"
 @app.route('/admin/dashboard/edit-product/<id>', methods=['GET','POST'])
@@ -55,6 +60,8 @@ def edit_products(id):
         description = request.form.get('description',None)
         price = request.form.get('price',None)
         active = request.form.get('active',None)
+        file = request.files.get('cover',None)
+
 
         product.name = name
         product.description = description
@@ -65,5 +72,9 @@ def edit_products(id):
             product.active = 1
 
         db.session.commit()
+
+        if file != None:
+            file.save(f'static/cover/{product.id}.jpg')
+
 
         return redirect(url_for("admin.edit_products", id=id))
