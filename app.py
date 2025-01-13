@@ -5,7 +5,8 @@ from blueprints.admin import app as admin
 from blueprints.user import app as user
 import confing
 import extentions
-
+from flask_login import LoginManager
+from models.user import User
 
 app = Flask(__name__)
 app.register_blueprint(general)
@@ -20,6 +21,11 @@ extentions.db.init_app(app)
 with app.app_context():
     extentions.db.create_all()
 csrf = CSRFProtect(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.filter(User.id == user_id).first()
 
 
 
