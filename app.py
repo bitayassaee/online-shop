@@ -1,9 +1,11 @@
 from flask import Flask
+from flask_wtf.csrf import CSRFProtect
 from blueprints.general import app as general
 from blueprints.admin import app as admin
 from blueprints.user import app as user
 import confing
 import extentions
+
 
 app = Flask(__name__)
 app.register_blueprint(general)
@@ -17,6 +19,7 @@ extentions.db.init_app(app)
 
 with app.app_context():
     extentions.db.create_all()
+csrf = CSRFProtect(app)
 
 
 
