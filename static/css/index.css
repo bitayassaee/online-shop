@@ -88,14 +88,14 @@ header a {
 header a:hover {
     text-decoration: underline;
 }
-header div input{
+
+header div input {
     font-size: 16px;
     font-weight: 300;
     border-radius: 25px;
     font-family: Vazir;
     border: 1px solid #7e7d7d;
 }
-
 
 .products {
     display: flex;
@@ -108,48 +108,59 @@ header div input{
 
 }
 
-.product-box {
+.product-box section {
     max-width: 250px;
     margin: 15px;
     border-radius: 29px;
     background: #e0e0e0;
     box-shadow: 5px 5px 10px #bebebe,
     -5px -5px 10px #ffffff;
-
-
+    height: 100%;
 }
 
-.product-box > img {
+.product-box section > img {
     width: 100%;
     border-top-right-radius: inherit;
     border-top-left-radius: inherit;
 }
 
-.product-box > h3 {
+.product-box section > h3 {
     margin: 5px;
-
 }
 
-.product-box > a {
+.add-to-cart-btn {
     text-decoration: none;
     padding: 5px;
     font-size: 12px;
-    border: 2px solid rgba(22, 120, 0, 0.87);
+    border: 2px solid rgb(24, 76, 9);
     border-radius: 12px;
-    background: rgba(132, 191, 105, 0.67);
-    color: var(--font-color);
-    float: left;
+    background: rgb(24, 58, 3);
+    color: #fafafa;
     margin: 10px;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    opacity: 0;
 }
 
-.product-box > a:hover {
+.add-to-cart-btn:hover {
 
     border: 2px solid rgba(134, 205, 107, 0.78);
-    background: rgba(141, 202, 120, 0.73);
+    background: rgba(12, 16, 11, 0.73);
 
 }
 
-.product-box > p {
+.product-box:hover .add-to-cart-btn {
+    opacity: 1;
+}
+
+.product-box {
+    position: relative;
+    padding-top: 30px;
+
+}
+
+.product-box section > p {
     font-size: 12px;
     margin: 0 10px;
     font-weight: 200;
@@ -165,7 +176,7 @@ a > img {
     width: 20px;
 }
 
-.tag{
+.tag {
     display: inline-flex;
     align-items: center;
     font-size: 14px;
@@ -173,15 +184,18 @@ a > img {
     border-radius: 10px;
     padding: 2px 5px;
 }
-.tag img{
+
+.tag img {
     width: 20px;
     margin-left: 5px;
 }
-.tag.red{
+
+.tag.red {
     border: 1px solid rgba(255, 0, 0, 0.54);
     background: rgba(255, 0, 0, 0.06);
 }
-.tag.blue{
+
+.tag.blue {
     border: 1px solid rgba(0, 42, 255, 0.54);
     background: rgba(0, 42, 255, 0.06);
 }
