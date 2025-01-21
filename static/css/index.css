@@ -107,6 +107,12 @@ header div input {
     align-items: stretch;
 
 }
+.price{
+    font-size: 16px;
+    font-weight: 500;
+   float: left;
+    padding-left: 10px;
+}
 
 .product-box section {
     max-width: 250px;
@@ -139,7 +145,7 @@ header div input {
     margin: 10px;
     position: absolute;
     left: 10px;
-    top: 20px;
+    top: 40px;
     opacity: 0;
 }
 
@@ -157,7 +163,6 @@ header div input {
 .product-box {
     position: relative;
     padding-top: 30px;
-
 }
 
 .product-box section > p {
