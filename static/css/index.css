@@ -50,19 +50,19 @@ header {
 }
 
 header img {
-    max-width: 100px;
-    height: inherit;
+    max-height: 40px;
     float: left;
 }
 
 header > section {
     width: 100%;
     max-width: 800px;
-    height: 40px;
+    height: 60px;
     margin: auto;
     margin: 30px auto auto;
     padding: 10px 20px;
     border-radius: 72px;
+    box-sizing: border-box;
     background: #e0e0e0;
     box-shadow: 9px 9px 18px #9d9d9d,
     -9px -9px 18px #ffffff;
@@ -190,6 +190,7 @@ header div input {
     font-size: 12px;
     margin: 0 10px;
     font-weight: 200;
+
 }
 
 a {
@@ -294,4 +295,42 @@ a > img {
 .similar-products-box{
     max-width: 110px;
 
+}
+#header-menu-btn{
+    float: right;
+    display: none;
+
+}
+#header-menu-close-btn{
+    text-align: right;
+    width: 100%;
+    display: none;
+    float: right;
+    margin: 10px;
+    font-size: 30px;
+}
+@media (max-width: 725px) {
+    header > section > div {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: #ffffff;
+        height: 0;
+        overflow: hidden;
+        z-index: 99;
+    }
+
+    header > section > div > * {
+        display: block;
+        margin-top: 5px;
+    }
+    #header-menu-btn {
+        display: block;
+    }
+
+    #header-menu-close-btn {
+        display: block;
+    }
 }
