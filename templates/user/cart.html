@@ -1,24 +1,51 @@
-{% extends 'base.html'%}
-{% block header%}
-<title>سبد خرید کاربر</title>
-{% endblock%}
-
+{% extends 'base.html' %}
+{% block haeder %}
+<title>سبدخرید</title>
+{% endblock %}
 {% block body %}
-{% if cart != None and cart.cart_items|list|length > 0 %}
 
+{% include 'part/header.html' %}
+
+
+<section class="simple-box cart">
+    <h1>سبدخرید</h1>
+    {% if cart != None and cart.cart_items|list|length > 0 %}
+    <table class="cart">
+        <tr>
+            <th>محصول</th>
+            <th>قیمت</th>
+            <th>تعداد</th>
+        </tr>
         {% for cart_item in cart.cart_items %}
-            {{ cart_item.product.name}} , {{cart_item.quantity}} , {{ cart_item.product.price}}
-            <form action="/remove-from-cart" method="get">
-                <input type="hidden" name="id" value="{{ cart_item.id }}">
-                <input type="submit" value="حذف">
-            </form>
+        <tr>
+            <td>{{ cart_item.product.name }}</td>
+            <td class="price">{{ cart_item.price }}</td>
+            <td>
+                <div style="display: flex;justify-content: center;align-items: center;">
+                    <a class="cartitem-btn"
+                       href="/remove-from-cart?id={{ cart_item.id }}">-</a>{{ cart_item.quantity }}<a
+                        class="cartitem-btn"
+                        href="/add-to-cart?id={{ cart_item.product.id }}">+</a>
+                </div>
+            </td>
+        </tr>
         {% endfor %}
 
-<b>
-    قیمت کل:{{ cart.total_price() }}تومان
-</b>
-<a href="/payment">پرداخت</a>
-{% else %}
-    سبد خرید خالی است
-{% endif %}
+        <tr>
+            <td colspan="3" style="text-align: left;">قیمت کل : <span class="price">{{ cart.total_price() }}</span></td>
+        </tr>
+    </table>
+
+
+    <a class="pay-btn icon" href="/payment"> پرداخت آنلاین <img
+            src="{{ url_for('static',filename='theme-image/wallet.png') }}"></a>
+
+
+    {% else %}
+    <i style="display: block;text-align: center;">سبد خرید خالی است</i>
+    {% endif %}
+
+</section>
+
+
 {% endblock %}
