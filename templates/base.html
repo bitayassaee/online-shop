@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css')}}">
-    {% block header %} {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/eggy.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/progressbar.css') }}"/>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+    {% block haeder %}{% endblock %}
 </head>
 <body>
-   {% block body %}
-    {% endblock %}
+{% block body %}{% endblock %}
+
 <script>
-    const prices=document.getElementsByClassName('price')
-    for(let i =0; i< prices.length; i++){
+    const prices = document.getElementsByClassName('price')
+    for (let i = 0; i < prices.length; i++) {
         let price = prices[i]
         price.innerText = parseInt(price.innerText).toLocaleString() + " تومان"
     }
+
     const header_menu = document.getElementById('header-menu');
     const change_header_menu = (show) => {
         if (show) {
@@ -25,6 +28,18 @@
             header_menu.style.height = "0"
         }
     }
+</script>
+
+<script type="module">
+    import {Eggy} from '{{ url_for('static',filename='js/eggy.js') }}';
+    {% for m in get_flashed_messages() %}
+        await Eggy({
+            title: 'اطلاعات',
+            message: '{{ m }}',
+            type: 'info',
+            duration: 5000,
+        });
+    {% endfor %}
 </script>
 </body>
 </html>
