@@ -29,6 +29,10 @@
     --font-color: #363636;
     --color-accent: rgb(0 134 229)
 }
+p{
+    text-align: justify;
+    padding: 5px 10px;
+}
 
 body {
     padding: 0;
@@ -415,6 +419,15 @@ a > img {
 
 .cart .pay-btn:hover img {
    filter: brightness(100);
+}
+.eggy .title {
+    font-weight: 800 !important;
+    font-size: 19px !important;
+}
+
+.eggy .message {
+    font-weight: 400 !important;
+    font-size: 16px !important;
 }
 
 
