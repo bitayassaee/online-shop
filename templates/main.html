@@ -4,12 +4,17 @@
 {% endblock%}
 {% block body %}
 
-        {% include 'part/header.html' %}
+{% include 'part/header.html' %}
+<div id="slideshow">
+    <img class="banner" src="{{ url_for('static',filename='image/banner.jpg') }}">
 
+</div>
 
 <section class="products">
     {% for p in products %}
-        {% include 'part/product.html' %}
+    {% include 'part/product.html' %}
     {% endfor %}
 </section>
+
+
 {% endblock %}
