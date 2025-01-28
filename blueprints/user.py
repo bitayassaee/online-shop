@@ -51,10 +51,6 @@ def login():
                 flash('نام کاربری یا رمز اشتباه است')
                 return redirect(url_for('user.login'))
 
-
-
-
-
 @app.route('/add-to-cart', methods=['GET'])
 @login_required
 def add_to_cart():

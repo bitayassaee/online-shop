@@ -42,7 +42,6 @@ body {
     color: var(--font-color);
     font-family: Vazir ;
     padding-bottom: 100px;
-
 }
 
 header {
@@ -79,7 +78,6 @@ header div {
     justify-content: center;
     align-items: center;
     float: right;
-
 }
 
 header .header-link {
@@ -120,7 +118,6 @@ header div input {
     flex-wrap: wrap;
     margin: auto;
     align-items: stretch;
-
 }
 
 .price {
@@ -173,7 +170,6 @@ td.price{
 
     border: 2px solid rgba(134, 205, 107, 0.78);
     background: rgba(12, 16, 11, 0.73);
-
 }
 
 .add-to-cart-btn2 {
@@ -187,14 +183,12 @@ td.price{
     font-weight: 400;
     display: flex;
     justify-content: center;
-
 }
 
 .add-to-cart-btn2:hover {
 
     border: 2px solid rgba(134, 205, 107, 0.78);
     background: rgba(12, 16, 11, 0.73);
-
 }
 
 .product-box:hover .add-to-cart-btn {
@@ -210,7 +204,6 @@ td.price{
     font-size: 12px;
     margin: 0 10px;
     font-weight: 200;
-
 }
 .banner{
     margin: auto;
@@ -293,7 +286,6 @@ a > img {
     background: #ffffff;
     border: 2px solid rgba(0, 0, 0, 0.22);
     padding: 10px;
-
 }
 
 .product-detail-box .product-image {
@@ -461,6 +453,7 @@ table.cart td {
     background: var(--color-accent);;
     color: #ffffff;
 }
+
 .red-btn {
     text-decoration: none;
     font-size: 16px;
@@ -493,7 +486,6 @@ table.cart td {
     font-weight: 400 !important;
     font-size: 16px !important;
 }
-
 
 @media (max-width: 725px) {
     header > section > div {
