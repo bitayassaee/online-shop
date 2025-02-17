@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect,abort,url_for
+from flask import Blueprint, render_template, request, session, redirect,abort,url_for,flash
 import confing
 from models.cart import Cart
 from models.product import Product
@@ -40,6 +40,7 @@ def order(id):
         status = request.form.get('status')
         cart.status = status
         db.session.commit()
+        flash("وضعیت سفارش با موفقیت تغییر کرد")
         return redirect(url_for('admin.order', id=id) )
 
 @app.route('/admin/dashboard/products', methods=['GET','POST'])
@@ -64,6 +65,7 @@ def products():
         db.session.commit()
 
         file.save(f'static/cover/{p.id}.jpg')
+        flash("محصول جدید اضافه شد")
 
         return "done"
 @app.route('/admin/dashboard/edit-product/<id>', methods=['GET','POST'])
@@ -92,5 +94,5 @@ def edit_products(id):
 
         if file.filename != "":
             file.save(f'static/cover/{product.id}.jpg')
-
+        flash("تغییرات با موفقیت ثبت شد")
         return redirect(url_for("admin.edit_products", id=id))
